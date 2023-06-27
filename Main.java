@@ -2,13 +2,11 @@ import coroutine.*;
 import java.util.Iterator;
 
 public class Main {
-    private static Engine engine = new Engine();
-
     public static void main(String[] args) {
-        engine.startCoroutine(new TestCoroutine1());
-        engine.startCoroutine(new TestCoroutine2());
-        engine.startMinuteTask(new TestMinuteTask());
-        engine.start();
+        Engine.Instance().startCoroutine(new TestCoroutine1());
+        Engine.Instance().startCoroutine(new TestCoroutine2());
+        Engine.Instance().startMinuteTask(new TestMinuteTask());
+        Engine.Instance().start();
     }
 }
 class TestCoroutine1 implements Iterator<Object>{

@@ -12,9 +12,17 @@ public class Engine {
     private final int minutePulseInterval = 60000;
     private final int hourPulseInterval = 3600000;
     private final int dailyPulseInterval = 86400000;
-    long minuteLastTimeStamp = System.currentTimeMillis();;
-    long hourLastTimeStamp = System.currentTimeMillis();;
-    long dailyLastTimeStamp = System.currentTimeMillis();;
+    long minuteLastTimeStamp = System.currentTimeMillis();
+    long hourLastTimeStamp = System.currentTimeMillis();
+    long dailyLastTimeStamp = System.currentTimeMillis();
+    private Engine() {}
+    private static class EngineHolder {
+        private static final Engine INSTANCE = new Engine();
+    }
+
+    public static Engine Instance() {
+        return EngineHolder.INSTANCE;
+    }
 
     public void start() {
         while (!shouldQuit()) {
