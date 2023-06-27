@@ -20,16 +20,10 @@ public class Coroutine {
         }
 
         boolean hasNext = iterator.hasNext();
-        if(hasNext){
-            iterator.next();
-        }
 
         while (!hasNext && !stack.empty()) {
             iterator = stack.pop();
             hasNext = iterator.hasNext();
-        }
-        if(hasNext){
-            iterator.next();
         }
 
         if (!hasNext) {

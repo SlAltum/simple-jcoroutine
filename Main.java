@@ -7,6 +7,7 @@ public class Main {
     public static void main(String[] args) {
         engine.startCoroutine(new TestCoroutine1());
         engine.startCoroutine(new TestCoroutine2());
+        engine.startMinuteTask(new TestMinuteTask());
         engine.start();
     }
 }
@@ -92,6 +93,21 @@ class TestCoroutine2 implements Iterator<Object>{
             default:
                 return false;
         }
+    }
+
+    public void remove() {
+        throw new UnsupportedOperationException();
+    }
+}
+
+class TestMinuteTask implements Iterator<Object>{
+    public Object next() {
+        System.out.println("[TestMinuteTask] minute pulse!");
+        return null;
+    }
+
+    public boolean hasNext() {
+        return true;
     }
 
     public void remove() {
